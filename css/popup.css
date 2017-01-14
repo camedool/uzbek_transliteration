@@ -1,0 +1,41 @@
+body {
+	font-family: "Segoe UI", "SegoeUISemilight", Calibri;
+    font-family: "Segoe UI", 'SegoeUISemilight', "Lucida Grande", Calibri, Tahoma, sans-serif;
+    font-size: 100%;
+	width: 300px;
+}
+#status {
+    /* avoid an excessively wide status text */
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+}
+
+@font-face {
+    font-family: 'SegoeUISemilight';
+    src: url('segoeuisl.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+	font-size: 15px;
+	text-align: center;
+	color: green;
+	font-weight: normal;
+}
+
+input {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#radio {
+	font-size: 13px;
+	color: crimson;
+}
+
+#transliterateBtn {
+	margin-left: 20px;
+}
