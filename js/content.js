@@ -1,8 +1,26 @@
-var p = document.getElementsByTagName('p');
-console.log(p);
-$("p").each(function () {
+chrome.runtime.onMessage.addListener(
+	function(request) {
+		// console.log(sender.tab ? 
+		// 	"from a content script: " + sender.tab.url : 
+		// 	"from the extenstion");
+		if (request.greeting == "latin") {
+			console.log("trasnletirating to Latin...");
+			$("p").each(function () {
 			replaceToLatin($(this));
 		});
+		} else if (request.greeting == "cyrillic") {
+			console.log("trasnletirating to Cyrillic...");
+			$("p").each(function () {
+				replaceToCyrillic($(this));
+		});	
+		}
+	})
+
+var p = document.getElementsByTagName('p');
+// console.log(p);
+// $("p").each(function () {
+// 			replaceToLatin($(this));
+// 		});
 
 
 function replaceToLatin(obj) {
@@ -165,3 +183,9 @@ function replaceToCyrillic(obj) {
 
     return(obj.html(text));
   };
+
+
+// chrome.extension.onMessage.addListener(
+//  function(request, sender) {
+//   alert("Contentscript has received a message from from background script: '" + request.message + "'");
+//   });
