@@ -3,33 +3,45 @@ window.onload = init;
 
 function init() { 
 
-    console.log("first stamp");
+    let button = document.getElementById("transliterateBtn");
+    button.addEventListener("click", (e) => {
+        // add the button spinner class
+        let loaderPlaceholder = document.getElementById("loader_placeholder");
+        loaderPlaceholder.classList.add("loading");
+        button.style.visibility = "hidden";
 
-    $("#transliterateBtn").click(function() {
-   	    // console.log($('input[value="language"]').val() )
-        if($('input[value="Latin"]').is(':checked')) { 
-            console.log("to Latin");
-            //chrome.tabs.executeScript(null, {"file:js/content.js"}); 
-            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {greeting: "latin"}, function(response) {
-                   // console.log(response.farewell);
-                });
-            });
+        // @ts-ignore
+        let toLanguage;
+        // @ts-ignore
+        if (document.getElementById("latin").checked) {
+            toLanguage = "latin";
+            console.log("latins is being transliterated");
         } else {
-            console.log("to Cyrllic");
-            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {greeting: "cyrillic"}, function(response) {
-                   // console.log(response.farewell);
-                });
-            });
+            toLanguage = "cyrillic"
+            console.log("cyrillic is being transliterated");
         }
-    
-	});
-};
 
-// if($('input[value="Latin"]').is(':checked')) { 
-//     alert("to Latin");
-//     replaceToLatin($("body")); 
-// }
+        const params = {
+            active: true,
+            currentWindow: true
+        }
 
+        // for(let i=0; i<50000; i++) {
+        //     console.log(i);
+        // }
+
+        // @ts-ignore
+        chrome.tabs.query(params, (tabs) => {
+            // @ts-ignore
+            chrome.tabs.sendMessage(tabs[0].id, {language: toLanguage}, (response) => {
+                // if (response.success) {
+                //     loaderPlaceholder.classList.remove("loading");
+                //     // remove the button class
+                //     button.style.visibility = "visible";
+
+                // }
+            })
+        });
+    });
+}
 

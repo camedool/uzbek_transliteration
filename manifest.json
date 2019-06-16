@@ -1,45 +1,22 @@
 {
 	"manifest_version": 2,
 
-	"name": "Transliteration: Latin - Cyrillic",
-	"description": "This extension transliterates the web page between Latin and Cyrillic",
-	"icons": { "16" : "images/16.png",
-                        "48" : "images/48.png",
-                        "128" : "images/128.png"},
+	"name": "Uzbek transliteration",
+	"description": "This extension transliterates the web page between Latin and Cyrillic alphabets for Uzbek language",
+	"icons": { "16" : "images/16.png", "48" : "images/48.png", "128" : "images/128.png"},
 	"version": "0.1",
-	"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
-
-	"content_scripts": [{
-		"js": ["js/jquery-3.1.1.min.js", "js/content.js"],
-		"matches": ["http://*/*", "https://*/*"]
-	}],
-
-	// "background": {
-	// 	"scripts" : ["js/background.js"]
-	// },
-
-	// "homepage_url": "",
-	// browser_action --> this is a type of extension (it is always available on all pages as icon)
-	// altertnatively, there is page_extension type --> which appears only on specific pages
-	"browser_action": {
-		"default_icon": "images/16.png",
-		"default_title": "Lotincha - Кириллча", // once hover on the icon this title appears
-		"default_popup": "popup.html"
+	"background": {
+		"scripts" : ["js/background.js"]
 	},
-
-	"permissions": [
-		"tabs", 
-		"https://ajax.googleapis.com/",
-		"background",
-		"http://*/*", 
-		"https://*/*"
-	]
-
-	 // "content_scripts": [
-  //   {
-  //       "matches": ["http://*/*", "https://*/*"],
-  //       "js": ["js/getDescription.js"]
-  //   }
-  //  ]
-
+	"browser_action": {
+		"default_title": "Lotincha - Кириллча",
+		"default_icon": "images/48.png",
+		"default_popup": "popup.html"
+    },
+    "permissions": ["activeTab"],
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "all_frames": true,
+        "js":      ["js/content.js"]
+    }]
 }

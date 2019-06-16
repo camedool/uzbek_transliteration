@@ -1,0 +1,98 @@
+2019-06-08T12:43:41.169Z - info:   [65356] *** FOLDER: d:\IT\webExtension\Uzbek_LatinToCyrillic ***
+2019-06-08T12:43:41.169Z - info:   [65356] AzureReposVSCode/1.149.2 (VSCode 1.35.0; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-08T12:43:41.169Z - debug:  [65356] Looking for an External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T12:43:41.169Z - debug:  [65356] No External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T12:43:41.170Z - debug:  [65356] Looking for TFVC repository at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T12:43:41.170Z - debug:  [65356] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-08T12:43:41.170Z - debug:  [65356] Using TFS proxy: 
+2019-06-08T12:43:41.170Z - debug:  [65356] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-08T12:43:41.171Z - debug:  [65356] TFVC Repository created with repositoryRootFolder='d:\IT\webExtension\Uzbek_LatinToCyrillic'
+2019-06-08T12:43:41.171Z - debug:  [65356] TFVC Repository.CheckVersion
+2019-06-08T12:43:41.171Z - debug:  [65356] TFVC: tf add -noprompt -?
+2019-06-08T12:43:41.177Z - debug:  [65356] TFVC: spawned new process (duration: 6ms)
+2019-06-08T12:43:41.185Z - debug:  [65356] TFVC: spawned new process (duration: 7ms)
+2019-06-08T12:43:41.809Z - debug:  [65356] TFVC: add exit code: 0 (duration: 638ms)
+2019-06-08T12:43:41.810Z - debug:  [65356] TFVC Minimum required version: 14.102.0
+2019-06-08T12:43:41.810Z - debug:  [65356] TFVC (TF.exe, TF.cmd) version: 15.129.28020.1
+2019-06-08T12:43:41.810Z - debug:  [65356] TFVC Repository.FindWorkspace with localPath='d:\IT\webExtension\Uzbek_LatinToCyrillic'
+2019-06-08T12:43:41.810Z - debug:  [65356] TFVC: tf workfold -noprompt d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T12:43:41.818Z - debug:  [65356] TFVC: spawned new process (duration: 7ms)
+2019-06-08T12:43:41.889Z - debug:  [65356] TFVC: workfold exit code: 100 (duration: 78ms)
+2019-06-08T12:43:41.889Z - debug:  [65356] TFVC errors (via stderr): Unable to determine the source control server.
+
+2019-06-08T12:43:41.890Z - error:  [65356] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
+2019-06-08T13:23:55.668Z - debug:  [65356] Reinitializing due to onDidChangeConfiguration
+2019-06-08T13:23:55.668Z - debug:  [65356] Polling interval value (minutes): 5
+2019-06-08T13:23:55.668Z - debug:  [65356] Polling interval must be greater than 10 minutes.
+2019-06-08T13:23:55.670Z - info:   [65356] *** FOLDER: d:\IT\webExtension\Uzbek_LatinToCyrillic ***
+2019-06-08T13:23:55.670Z - info:   [65356] AzureReposVSCode/1.149.2 (VSCode 1.35.0; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-08T13:23:55.670Z - debug:  [65356] Looking for an External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T13:23:55.670Z - debug:  [65356] No External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T13:23:55.675Z - debug:  [65356] Looking for TFVC repository at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T13:23:55.675Z - debug:  [65356] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-08T13:23:55.675Z - debug:  [65356] Using TFS proxy: 
+2019-06-08T13:23:55.675Z - debug:  [65356] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-08T13:23:55.675Z - debug:  [65356] TFVC Repository created with repositoryRootFolder='d:\IT\webExtension\Uzbek_LatinToCyrillic'
+2019-06-08T13:23:55.676Z - debug:  [65356] TFVC Repository.CheckVersion
+2019-06-08T13:23:55.676Z - debug:  [65356] TFVC: tf add -noprompt -?
+2019-06-08T13:23:55.687Z - debug:  [65356] TFVC: spawned new process (duration: 11ms)
+2019-06-08T13:23:55.740Z - debug:  [65356] TFVC: add exit code: 0 (duration: 64ms)
+2019-06-08T13:23:55.740Z - debug:  [65356] TFVC Minimum required version: 14.102.0
+2019-06-08T13:23:55.740Z - debug:  [65356] TFVC (TF.exe, TF.cmd) version: 15.129.28020.1
+2019-06-08T13:23:55.740Z - debug:  [65356] TFVC Repository.FindWorkspace with localPath='d:\IT\webExtension\Uzbek_LatinToCyrillic'
+2019-06-08T13:23:55.741Z - debug:  [65356] TFVC: tf workfold -noprompt d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-08T13:23:55.748Z - debug:  [65356] TFVC: spawned new process (duration: 7ms)
+2019-06-08T13:23:56.041Z - debug:  [65356] TFVC: workfold exit code: 100 (duration: 299ms)
+2019-06-08T13:23:56.041Z - debug:  [65356] TFVC errors (via stderr): Unable to determine the source control server.
+
+2019-06-08T13:23:56.041Z - error:  [65356] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
+2019-06-15T11:07:53.223Z - info:   [32096] *** FOLDER: d:\IT\webExtension\Uzbek_LatinToCyrillic ***
+2019-06-15T11:07:53.223Z - info:   [32096] AzureReposVSCode/1.149.2 (VSCode 1.35.1; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-15T11:07:53.223Z - debug:  [32096] Looking for an External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-15T11:07:53.223Z - debug:  [32096] No External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-15T11:07:53.224Z - debug:  [32096] Looking for TFVC repository at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-15T11:07:53.224Z - debug:  [32096] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-15T11:07:53.225Z - debug:  [32096] Using TFS proxy: 
+2019-06-15T11:07:53.225Z - debug:  [32096] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-15T11:07:53.225Z - warn:   [32096] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe does not exist.
+2019-06-15T11:07:53.225Z - error:  [32096] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2019-06-15T18:36:59.339Z - info:   [03896] *** FOLDER: d:\IT\webExtension\Uzbek_LatinToCyrillic ***
+2019-06-15T18:36:59.340Z - info:   [03896] AzureReposVSCode/1.149.2 (VSCode 1.35.1; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-15T18:36:59.340Z - debug:  [03896] Looking for an External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-15T18:36:59.340Z - debug:  [03896] No External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-15T18:36:59.341Z - debug:  [03896] Looking for TFVC repository at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-15T18:36:59.341Z - debug:  [03896] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-15T18:36:59.342Z - debug:  [03896] Using TFS proxy: 
+2019-06-15T18:36:59.342Z - debug:  [03896] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-15T18:36:59.342Z - warn:   [03896] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe does not exist.
+2019-06-15T18:36:59.342Z - error:  [03896] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2019-06-16T09:43:24.785Z - info:   [48236] *** FOLDER: d:\IT\webExtension\Uzbek_LatinToCyrillic ***
+2019-06-16T09:43:24.785Z - info:   [48236] AzureReposVSCode/1.149.2 (VSCode 1.35.1; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-16T09:43:24.785Z - debug:  [48236] Looking for an External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-16T09:43:24.785Z - debug:  [48236] No External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-16T09:43:24.786Z - debug:  [48236] Looking for TFVC repository at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-16T09:43:24.787Z - debug:  [48236] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-16T09:43:24.787Z - debug:  [48236] Using TFS proxy: 
+2019-06-16T09:43:24.787Z - debug:  [48236] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-16T09:43:24.788Z - warn:   [48236] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe does not exist.
+2019-06-16T09:43:24.788Z - error:  [48236] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2019-06-16T18:27:19.789Z - info:   [08288] *** FOLDER: d:\IT\webExtension\Uzbek_LatinToCyrillic ***
+2019-06-16T18:27:19.789Z - info:   [08288] AzureReposVSCode/1.149.2 (VSCode 1.35.1; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-16T18:27:19.789Z - debug:  [08288] Looking for an External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-16T18:27:19.789Z - debug:  [08288] No External Context at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-16T18:27:19.790Z - debug:  [08288] Looking for TFVC repository at d:\IT\webExtension\Uzbek_LatinToCyrillic
+2019-06-16T18:27:19.790Z - debug:  [08288] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-16T18:27:19.790Z - debug:  [08288] Using TFS proxy: 
+2019-06-16T18:27:19.790Z - debug:  [08288] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-16T18:27:19.791Z - warn:   [08288] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe does not exist.
+2019-06-16T18:27:19.791Z - error:  [08288] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2019-06-16T18:40:50.470Z - info:   [55896] *** FOLDER: d:\IT\webExtension\uzbek_transliteration ***
+2019-06-16T18:40:50.471Z - info:   [55896] AzureReposVSCode/1.149.2 (VSCode 1.35.1; Windows_NT 10.0.17134; Node 10.2.0)
+2019-06-16T18:40:50.471Z - debug:  [55896] Looking for an External Context at d:\IT\webExtension\uzbek_transliteration
+2019-06-16T18:40:50.471Z - debug:  [55896] No External Context at d:\IT\webExtension\uzbek_transliteration
+2019-06-16T18:40:50.471Z - debug:  [55896] Looking for TFVC repository at d:\IT\webExtension\uzbek_transliteration
+2019-06-16T18:40:50.472Z - debug:  [55896] TFVC Creating Tfvc object with localPath='undefined'
+2019-06-16T18:40:50.472Z - debug:  [55896] Using TFS proxy: 
+2019-06-16T18:40:50.472Z - debug:  [55896] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2019-06-16T18:40:50.472Z - warn:   [55896] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe does not exist.
+2019-06-16T18:40:50.472Z - error:  [55896] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
