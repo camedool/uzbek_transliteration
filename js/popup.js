@@ -8,8 +8,9 @@ function init() {
         // add the button spinner class
         let loaderPlaceholder = document.getElementById("loader_placeholder");
         loaderPlaceholder.classList.add("loading");
-        button.style.visibility = "hidden";
-        button.style.position = "absolute";
+
+        // @ts-ignore
+        button.disabled = true;
 
         let toLanguage;
         // @ts-ignore
@@ -28,11 +29,10 @@ function init() {
             chrome.tabs.query(params, (tabs) => {
                 // @ts-ignore
                 chrome.tabs.sendMessage(tabs[0].id, {language: toLanguage}, (response) => {
-                    if (response.success) {
+                    if (response && response.success) {
                         loaderPlaceholder.classList.remove("loading");
-                        // remove the button class
-                        button.style.visibility = "visible";
-                        button.style.position = "relative"
+                        // @ts-ignore                
+                        button.disabled = false;
                     }
                 })
             });
