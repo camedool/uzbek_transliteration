@@ -108,6 +108,13 @@ button:hover {
     background-color: #73c976;
 }
 
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+
 /*Create ripple effect*/
 
 .ripple {
