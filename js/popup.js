@@ -1,4 +1,3 @@
-
 window.onload = init; 
 
 function init() { 
@@ -29,6 +28,12 @@ function init() {
             chrome.tabs.query(params, (tabs) => {
                 // @ts-ignore
                 chrome.tabs.sendMessage(tabs[0].id, {language: toLanguage}, (response) => {
+                    // @ts-ignore
+                    if (chrome.runtime.lastError) {
+                        // @ts-ignore
+                        console.warn(`Error happened ${chrome.runtime.lastError.message}`);
+                        return;
+                    }
                     if (response && response.success) {
                         loaderPlaceholder.classList.remove("loading");
                         // @ts-ignore                
