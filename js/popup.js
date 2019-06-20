@@ -31,7 +31,7 @@ function init() {
                     // @ts-ignore
                     if (chrome.runtime.lastError) {
                         // @ts-ignore
-                        console.warn(`Error happened ${chrome.runtime.lastError.message}`);
+                        console.log(`Error happened ${chrome.runtime.lastError.message}`);
                         return;
                     }
                     if (response && response.success) {
