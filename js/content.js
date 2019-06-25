@@ -3,10 +3,6 @@ const VOWEL = ['А','а', 'О','о', 'И','и', 'У','у', 'Э','э', 'Ў','ў',
 const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц'};
 
 const twoStringLatinLettersNotUsed = { 'Ts':'Ц', 'ts':'ц'};
-// const LETTER_TO_LATIN = {"Щ":"Sh", "щ":"sh", "ы":"i","Ы":"I", "ь":"'", "Ь":"'", '#': 'S', '|':'s', '`':'Ye','~':'ye','А':'A', 'Б':'B', 'Д':'D', 'Э':'E', 'Е':'E', 'Ф':'F', 'Г':'G', 'Ҳ':'H', 'И':'I', 'Ж':'J', 'К':'K', 'Л':'L', 'М':'M', 'Н':'N', 'О':'O', 'П':'P', 'Қ':'Q', 'Р':'R', 'С':'S', 'Т':'T', 'У':'U', 'В':'V', 'Х':'X', 'Й':'Y', 'З':'Z', 'Ў':'Oʻ', 'Ғ':'Gʻ', 'Ш':'Sh', 'Ч':'Ch', 'Ё':'Yo', 'Ю':'Yu', 'Я':'Ya', 'Ц':'Ts', 'а':'a', 'б':'b', 'д':'d', 'э':'e', 'е':'e', 'ф':'f', 'г':'g', 'ҳ':'h', 'и':'i', 'ж':'j', 'к':'k', 'л':'l', 'м':'m', 'н':'n', 'о':'o', 'п':'p', 'қ':'q', 'р':'r', 'с':'s', 'т':'t', 'у':'u', 'в':'v', 'х':'x', 'й':'y', 'з':'z', 'ў':'oʻ', 'ғ':'gʻ', 'ш':'sh', 'ч':'ch', 'ъ':'ʼ', 'ё':'yo', 'ю':'yu', 'я':'ya', 'ц':'ts'}; 
-// const VOWEL = {'А':'', 'а':'', 'О':'','о':'','И':'','и':'','У':'','у':'','Э':'','э':'','Ў':'','ў':'','Е':'','е':'','Ё':'','ё':'','Ю':'','ю':'','Я':'','я':''};
-// const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Э', 'E':'Е', 'F':'Ф', 'G':'Ғ', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', 'Y':'Й', 'Z':'З', 'Oʻ':'Ў', 'Gʻ':'Ғ', 'Sh':'Ш', 'Ch':'Ч', 'Ye':'Е', 'Yo':'Ё', 'Yu':'Ю', 'Ya':'Я', 'Ts':'Ц', 'a':'а', 'b':'б', 'd':'д', 'e':'э', 'e':'е', 'f':'ф', 'g':'ғ', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', 'y':'й', 'z':'з', 'oʻ':'ў', 'gʻ':'ғ', 'sh':'ш', 'ch':'ч', 'ʼ':'ъ', 'ye':'е', 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц'};
-
 const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div']
 
 // @ts-ignore
@@ -59,11 +55,15 @@ function convertToLatin(string) {
             string = string.replace("ц", "s");
             break;
     }
-   
-    string = string.replace(/ е/g, " ye");
-    string = string.replace(/ Е/g, " Ye");
-    string = string.replace(/ Ц/g, " S");
-    string = string.replace(/ ц/g, " s");
+    var replacer_e = replacerGeneric("ye");
+    var replacer_E = replacerGeneric("Ye");
+    var replacer_Ц = replacerGeneric("S");
+    var replacer_ц = replacerGeneric("s");
+
+    string = string.replace(/\Wе/g, replacer_e);
+    string = string.replace(/\WЕ/g, replacer_E);
+    string = string.replace(/\WЦ/g, replacer_Ц);
+    string = string.replace(/\Wц/g, replacer_ц);
     
     let result = ""; // transliterated string
     for (let i = 0; i < string.length; i++) {
