@@ -124,7 +124,7 @@ function convertToCyrillic(string) {
     var replacer_e = replacerGeneric("э");
 
     string = string.replace(/\WE/g, replacer_E);
-    string = string.replace(/ е/g, replacer_e);
+    string = string.replace(/\Wе/g, replacer_e);
     string = string.replace(/Ye/g, "Е");
     string = string.replace(/YE/g, "Е");
     string = string.replace(/ye/g, "е");
