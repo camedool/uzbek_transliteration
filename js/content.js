@@ -97,7 +97,7 @@ function convertToLatin(string) {
     return result;
 }
 
-function convertToCyrillic(string) {
+function convertToCyrillic(string) { 
     if (!string) 
         return;
 
