@@ -55,6 +55,7 @@ function convertToLatin(string) {
             string = string.replace("ц", "s");
             break;
     }
+    
     var replacer_e = replacerGeneric("ye");
     var replacer_E = replacerGeneric("Ye");
     var replacer_Ц = replacerGeneric("S");
