@@ -61,10 +61,10 @@ function convertToLatin(string) {
     var replacer_Ц = replacerGeneric("S");
     var replacer_ц = replacerGeneric("s");
 
-    string = string.replace(/\Wе/g, replacer_e);
-    string = string.replace(/\WЕ/g, replacer_E);
-    string = string.replace(/\WЦ/g, replacer_Ц);
-    string = string.replace(/\Wц/g, replacer_ц);
+    string = string.replace(/\P{Script=Cyrillic}е/gu, replacer_e); // matching the any non Cyrillic character and "e", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}Е/gu, replacer_E); // matching the any non Cyrillic character and "E", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}Ц/gu, replacer_Ц); // matching the any non Cyrillic character and "Ц", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}ц/gu, replacer_ц); // matching the any non Cyrillic character and "ц", and using unicode
     
     let result = ""; // transliterated string
     for (let i = 0; i < string.length; i++) {
