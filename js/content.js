@@ -1,9 +1,9 @@
 const LETTER_TO_LATIN = {"Щ":"Sh", "щ":"sh", "ы":"i","Ы":"I", "ь":"'", "Ь":"'", 'А':'A', 'Б':'B', 'Д':'D', 'Э':'E', 'Е':'E', 'Ф':'F', 'Г':'G', 'Ҳ':'H', 'И':'I', 'Ж':'J', 'К':'K', 'Л':'L', 'М':'M', 'Н':'N', 'О':'O', 'П':'P', 'Қ':'Q', 'Р':'R', 'С':'S', 'Т':'T', 'У':'U', 'В':'V', 'Х':'X', 'Й':'Y', 'З':'Z', 'Ў':"O'", 'Ғ':"G'", 'Ш':'Sh', 'Ч':'Ch', 'Ё':'Yo', 'Ю':'Yu', 'Я':'Ya', 'Ц':'Ts', 'а':'a', 'б':'b', 'д':'d', 'э':'e', 'е':'e', 'ф':'f', 'г':'g', 'ҳ':'h', 'и':'i', 'ж':'j', 'к':'k', 'л':'l', 'м':'m', 'н':'n', 'о':'o', 'п':'p', 'қ':'q', 'р':'r', 'с':'s', 'т':'t', 'у':'u', 'в':'v', 'х':'x', 'й':'y', 'з':'z', 'ў':"o'", 'ғ':"g'", 'ш':'sh', 'ч':'ch', 'ъ':"'", 'ё':'yo', 'ю':'yu', 'я':'ya', 'ц':'ts'}; 
 const VOWEL = ['А','а', 'О','о', 'И','и', 'У','у', 'Э','э', 'Ў','ў', 'Е','е', 'Ё','ё', 'Ю','ю', 'Я','я'];
-const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц'};
+const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц', 'C':'К', 'c':'к' };
 
 const twoStringLatinLettersNotUsed = { 'Ts':'Ц', 'ts':'ц'};
-const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div']
+const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail"]
 
 // @ts-ignore
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -37,8 +37,8 @@ function transliterate(conversionFn, element) {
 }
 
 function convertToLatin(string) {
-    if (!string) 
-        return;
+    if (!string.match(/\p{Script=Cyrillic}/gu)) // if there are no cyrillic letters in the stirng, then just return original string
+        return string;
     
     // special trick for (e, E, Ц, ц) transliterated differently  in case it's a first letter of the string
     switch (string[0]) {
@@ -56,10 +56,10 @@ function convertToLatin(string) {
             break;
     }
     
-    var replacer_e = replacerGeneric("ye");
-    var replacer_E = replacerGeneric("Ye");
-    var replacer_Ц = replacerGeneric("S");
-    var replacer_ц = replacerGeneric("s");
+    var replacer_e = replacerGenericLastLetter("ye");
+    var replacer_E = replacerGenericLastLetter("Ye");
+    var replacer_Ц = replacerGenericLastLetter("S");
+    var replacer_ц = replacerGenericLastLetter("s");
 
     string = string.replace(/\P{Script=Cyrillic}е/gu, replacer_e); // matching the any non Cyrillic character and "e", and using unicode
     string = string.replace(/\P{Script=Cyrillic}Е/gu, replacer_E); // matching the any non Cyrillic character and "E", and using unicode
@@ -99,8 +99,8 @@ function convertToLatin(string) {
 }
 
 function convertToCyrillic(string) {
-    if (!string) 
-        return;
+    if (!string.match("[a-zA-Z']")) // if there are no latin letters in the string, then just return the original string
+        return string;
 
     // special trick for (e and E) transliterated differently  in case it's a first letter of the string
     switch (string[0]) {
@@ -121,11 +121,17 @@ function convertToCyrillic(string) {
             string[0] = "Е";
             break;
 }
-    var replacer_E = replacerGeneric("Э"); // spec closure function to replace all words starting with e or E to э, Э
-    var replacer_e = replacerGeneric("э");
+    var replacer_E = replacerGenericLastLetter("Э"); // spec closure function to replace all words starting with e or E to э, Э
+    var replacer_e = replacerGenericLastLetter("э");
+    var replacer_c = replacerGenericFirstLetter("с"); 
+    var replacer_C = replacerGenericFirstLetter("С");
+    
+
 
     string = string.replace(/\WE/g, replacer_E);
-    string = string.replace(/\Wе/g, replacer_e);
+    string = string.replace(/\Wе/g, replacer_e); 
+    string = string.replace(/c[eyi]/g, replacer_c); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
+    string = string.replace(/C[eyi]/g, replacer_C); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
     string = string.replace(/Ye/g, "Е");
     string = string.replace(/YE/g, "Е");
     string = string.replace(/ye/g, "е");
@@ -183,14 +189,35 @@ function convertToCyrillic(string) {
     return result;
 }
 
-function replacerGeneric(elem) {
+/**
+ * Returns the replacer function that has a closure over the target string that should be inserted instead of matched string.
+ * Replaces the last letter (or second letter) in matched string.
+ */
+function replacerGenericLastLetter(elem) {
     function replacer(str) {
         if (str && str.length === 2)
             return str[0] + elem;
         else if (str && str.length === 1)
             return elem;
         else
-            console.log(str);
+            console.warn(str); // remvoe this line after the debugging
+    }
+
+    return replacer;
+}
+
+/**
+ * Returns the replacer function that has a closure over the target string that should be inserted instead of matched string.
+ * Replaces the first letter in matched string.
+ */
+function replacerGenericFirstLetter(elem) {
+    function replacer(str) {
+        if (str && str.length === 2)
+            return elem + str.substring(1);
+        else if (str && str.length === 1)
+            return elem;
+        else
+            console.warn(str); // remvoe this line after the debugging
     }
 
     return replacer;
