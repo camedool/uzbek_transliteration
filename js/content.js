@@ -3,7 +3,7 @@ const VOWEL = ['А','а', 'О','о', 'И','и', 'У','у', 'Э','э', 'Ў','ў',
 const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц', 'C':'К', 'c':'к' };
 
 const twoStringLatinLettersNotUsed = { 'Ts':'Ц', 'ts':'ц'};
-const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail"]
+const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail", "time", "cite"]
 
 // @ts-ignore
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -56,15 +56,15 @@ function convertToLatin(string) {
             break;
     }
     
-    var replacer_e = replacerGenericLastLetter("ye");
-    var replacer_E = replacerGenericLastLetter("Ye");
-    var replacer_Ц = replacerGenericLastLetter("S");
-    var replacer_ц = replacerGenericLastLetter("s");
+    // var replacer_e = replacerGenericLastLetter("ye");
+    // var replacer_E = replacerGenericLastLetter("Ye");
+    // var replacer_Ц = replacerGenericLastLetter("S");
+    // var replacer_ц = replacerGenericLastLetter("s");
 
-    string = string.replace(/\P{Script=Cyrillic}е/gu, replacer_e); // matching the any non Cyrillic character and "e", and using unicode
-    string = string.replace(/\P{Script=Cyrillic}Е/gu, replacer_E); // matching the any non Cyrillic character and "E", and using unicode
-    string = string.replace(/\P{Script=Cyrillic}Ц/gu, replacer_Ц); // matching the any non Cyrillic character and "Ц", and using unicode
-    string = string.replace(/\P{Script=Cyrillic}ц/gu, replacer_ц); // matching the any non Cyrillic character and "ц", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}е/gu, replacerGenericLastLetter("ye")); // matching the any non Cyrillic character and "e", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}Е/gu, replacerGenericLastLetter("Ye")); // matching the any non Cyrillic character and "E", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}Ц/gu, replacerGenericLastLetter("S")); // matching the any non Cyrillic character and "Ц", and using unicode
+    string = string.replace(/\P{Script=Cyrillic}ц/gu, replacerGenericLastLetter("s")); // matching the any non Cyrillic character and "ц", and using unicode
     
     let result = ""; // transliterated string
     for (let i = 0; i < string.length; i++) {
@@ -121,17 +121,17 @@ function convertToCyrillic(string) {
             string[0] = "Е";
             break;
 }
-    var replacer_E = replacerGenericLastLetter("Э"); // spec closure function to replace all words starting with e or E to э, Э
-    var replacer_e = replacerGenericLastLetter("э");
-    var replacer_c = replacerGenericFirstLetter("с"); 
-    var replacer_C = replacerGenericFirstLetter("С");
+    // var replacer_E = replacerGenericLastLetter("Э"); // spec closure function to replace all words starting with e or E to э, Э
+    // var replacer_e = replacerGenericLastLetter("э");
+    // var replacer_c = replacerGenericFirstLetter("с"); 
+    // var replacer_C = replacerGenericFirstLetter("С");
     
 
 
-    string = string.replace(/\WE/g, replacer_E);
-    string = string.replace(/\Wе/g, replacer_e); 
-    string = string.replace(/c[eyi]/g, replacer_c); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
-    string = string.replace(/C[eyi]/g, replacer_C); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
+    string = string.replace(/\WE/g, replacerGenericLastLetter("Э"));
+    string = string.replace(/\Wе/g, replacerGenericLastLetter("э")); 
+    string = string.replace(/c[eyi]/g, replacerGenericFirstLetter("с")); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
+    string = string.replace(/C[eyi]/g, replacerGenericFirstLetter("С")); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
     string = string.replace(/Ye/g, "Е");
     string = string.replace(/YE/g, "Е");
     string = string.replace(/ye/g, "е");

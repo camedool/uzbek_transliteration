@@ -231,7 +231,7 @@ input[type=radio] {
 }
 
 input[type=radio] + label{
-    border: 2px solid  #AB7C94;
+    border: 2px solid  #2b8832;
     /* outline: 2px solid #000000; */
     height: 15px;
     width: 15px;
@@ -242,7 +242,7 @@ input[type=radio] + label{
 }
 
 input[type=radio]:checked + label{
-    background:#AB7C94;
+    background: #60bf64;
     height: 11px;
     width: 11px;
     display:inline-block;
