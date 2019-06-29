@@ -1,9 +1,8 @@
-const LETTER_TO_LATIN = {"Щ":"Sh", "щ":"sh", "ы":"i","Ы":"I", "ь":"'", "Ь":"'", 'А':'A', 'Б':'B', 'Д':'D', 'Э':'E', 'Е':'E', 'Ф':'F', 'Г':'G', 'Ҳ':'H', 'И':'I', 'Ж':'J', 'К':'K', 'Л':'L', 'М':'M', 'Н':'N', 'О':'O', 'П':'P', 'Қ':'Q', 'Р':'R', 'С':'S', 'Т':'T', 'У':'U', 'В':'V', 'Х':'X', 'Й':'Y', 'З':'Z', 'Ў':"O'", 'Ғ':"G'", 'Ш':'Sh', 'Ч':'Ch', 'Ё':'Yo', 'Ю':'Yu', 'Я':'Ya', 'Ц':'Ts', 'а':'a', 'б':'b', 'д':'d', 'э':'e', 'е':'e', 'ф':'f', 'г':'g', 'ҳ':'h', 'и':'i', 'ж':'j', 'к':'k', 'л':'l', 'м':'m', 'н':'n', 'о':'o', 'п':'p', 'қ':'q', 'р':'r', 'с':'s', 'т':'t', 'у':'u', 'в':'v', 'х':'x', 'й':'y', 'з':'z', 'ў':"o'", 'ғ':"g'", 'ш':'sh', 'ч':'ch', 'ъ':"'", 'ё':'yo', 'ю':'yu', 'я':'ya', 'ц':'ts'}; 
+const LETTER_TO_LATIN = {"Щ":"Sh", "щ":"sh", "ы":"i","Ы":"I", "ъ":"'", "Ъ":"'", "ь":"'", "Ь":"'", 'А':'A', 'Б':'B', 'Д':'D', 'Э':'E', 'Е':'E', 'Ф':'F', 'Г':'G', 'Ҳ':'H', 'И':'I', 'Ж':'J', 'К':'K', 'Л':'L', 'М':'M', 'Н':'N', 'О':'O', 'П':'P', 'Қ':'Q', 'Р':'R', 'С':'S', 'Т':'T', 'У':'U', 'В':'V', 'Х':'X', 'Й':'Y', 'З':'Z', 'Ў':"O'", 'Ғ':"G'", 'Ш':'Sh', 'Ч':'Ch', 'Ё':'Yo', 'Ю':'Yu', 'Я':'Ya', 'Ц':'Ts', 'а':'a', 'б':'b', 'д':'d', 'э':'e', 'е':'e', 'ф':'f', 'г':'g', 'ҳ':'h', 'и':'i', 'ж':'j', 'к':'k', 'л':'l', 'м':'m', 'н':'n', 'о':'o', 'п':'p', 'қ':'q', 'р':'r', 'с':'s', 'т':'t', 'у':'u', 'в':'v', 'х':'x', 'й':'y', 'з':'z', 'ў':"o'", 'ғ':"g'", 'ш':'sh', 'ч':'ch', 'ъ':"'", 'ё':'yo', 'ю':'yu', 'я':'ya', 'ц':'ts'}; 
 const VOWEL = ['А','а', 'О','о', 'И','и', 'У','у', 'Э','э', 'Ў','ў', 'Е','е', 'Ё','ё', 'Ю','ю', 'Я','я'];
-const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц', 'C':'К', 'c':'к' };
+const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', "’":"ъ", 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц', 'C':'К', 'c':'к' };
 
-const twoStringLatinLettersNotUsed = { 'Ts':'Ц', 'ts':'ц'};
-const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail", "time", "cite"]
+const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail", "time", "cite", "button", "mark", "small", "th", "td"]
 
 // @ts-ignore
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -24,16 +23,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 }); 
 
 function transliterate(conversionFn, element) {
-    if (element.children && element.children.length != 0)
-        element.childNodes.forEach(node => {
-            if (node.children && node.children.length !=0) {
-                transliterate(conversionFn, node);
-            }
-            else if (node.nodeType == 3) // this is node.TEXT_NODE
-                node.textContent = conversionFn(node.textContent);
-        })
-    else
-        element.textContent = conversionFn(element.textContent);
+    element.childNodes.forEach(node => {
+        if (node.children && node.children.length !=0) {
+            transliterate(conversionFn, node);
+        }
+        else if (node.nodeType == 3) // this is node.TEXT_NODE
+            node.textContent = conversionFn(node.textContent);
+    })
 }
 
 function convertToLatin(string) {
@@ -56,11 +52,6 @@ function convertToLatin(string) {
             break;
     }
     
-    // var replacer_e = replacerGenericLastLetter("ye");
-    // var replacer_E = replacerGenericLastLetter("Ye");
-    // var replacer_Ц = replacerGenericLastLetter("S");
-    // var replacer_ц = replacerGenericLastLetter("s");
-
     string = string.replace(/\P{Script=Cyrillic}е/gu, replacerGenericLastLetter("ye")); // matching the any non Cyrillic character and "e", and using unicode
     string = string.replace(/\P{Script=Cyrillic}Е/gu, replacerGenericLastLetter("Ye")); // matching the any non Cyrillic character and "E", and using unicode
     string = string.replace(/\P{Script=Cyrillic}Ц/gu, replacerGenericLastLetter("S")); // matching the any non Cyrillic character and "Ц", and using unicode
@@ -120,18 +111,10 @@ function convertToCyrillic(string) {
         case "Ye":
             string[0] = "Е";
             break;
-}
-    // var replacer_E = replacerGenericLastLetter("Э"); // spec closure function to replace all words starting with e or E to э, Э
-    // var replacer_e = replacerGenericLastLetter("э");
-    // var replacer_c = replacerGenericFirstLetter("с"); 
-    // var replacer_C = replacerGenericFirstLetter("С");
-    
-
-
+    }
+    // Important! Order of the letters being replaced matters!
     string = string.replace(/\WE/g, replacerGenericLastLetter("Э"));
     string = string.replace(/\Wе/g, replacerGenericLastLetter("э")); 
-    string = string.replace(/c[eyi]/g, replacerGenericFirstLetter("с")); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
-    string = string.replace(/C[eyi]/g, replacerGenericFirstLetter("С")); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
     string = string.replace(/Ye/g, "Е");
     string = string.replace(/YE/g, "Е");
     string = string.replace(/ye/g, "е");
@@ -141,40 +124,45 @@ function convertToCyrillic(string) {
     string = string.replace(/Ch/g, "Ч");
     string = string.replace(/CH/g, "Ч");
     string = string.replace(/ch/g, "ч");
-
+    
     string = string.replace(/O‘/g, "Ў");
     string = string.replace(/O'/g, "Ў");
     string = string.replace(/O`/g, "Ў");
     string = string.replace(/Oʻ/g, "Ў");
-    string = string.replace(/Оʼ/g, "Ў");
-
+    string = string.replace(/Oʼ/g, "Ў");
+    string = string.replace(/O’/g, "Ў");
+    
+    string = string.replace(/o‘/g, "ў");
+    string = string.replace(/o'/g, "ў")
+    string = string.replace(/o`/g, "ў");
+    string = string.replace(/oʻ/g, "ў");
+    string = string.replace(/oʼ/g, "ў");
+    string = string.replace(/o’/g, "ў");   
+    
     string = string.replace(/G‘/g, "Ғ");
     string = string.replace(/G'/g, "Ғ");
     string = string.replace(/G`/g, "Ғ");
     string = string.replace(/Gʼ/g, "Ғ");
 
+    string = string.replace(/g‘/g, "ғ");
+    string = string.replace(/g'/g, "ғ");
+    string = string.replace(/g`/g, "ғ");
+    string = string.replace(/gʼ/g, "ғ");
+    
     string = string.replace(/Yo/g, "Ё");
     string = string.replace(/YO/g, "Ё");
     string = string.replace(/Yu/g, "Ю");
     string = string.replace(/YU/g, "Ю");
     string = string.replace(/Ya/g, "Я");
     string = string.replace(/YA/g, "Я");
-
-    string = string.replace(/o‘/g, "ў");
-    string = string.replace(/o'/g, "ў")
-    string = string.replace(/o`/g, "ў");
-    string = string.replace(/oʻ/g, "ў");
-    string = string.replace(/оʼ/g, "ў");   
     
-    string = string.replace(/g‘/g, "ғ");
-    string = string.replace(/g'/g, "ғ");
-    string = string.replace(/g`/g, "ғ");
-    string = string.replace(/gʼ/g, "ғ");
-
     string = string.replace(/yo/g, "ё");
     string = string.replace(/yu/g, "ю");
     string = string.replace(/ya/g, "я");
-  
+
+    string = string.replace(/c[eyi]/g, replacerGenericFirstLetter("с")); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
+    string = string.replace(/C[eyi]/g, replacerGenericFirstLetter("С")); // if latin c comes before "e y i" then it transliterates as C, on other cases as K
+    
     let result = "";
     for (let i = 0; i < string.length; i++) {
         let tempLetter = string[i];
