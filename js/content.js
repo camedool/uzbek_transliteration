@@ -2,7 +2,7 @@ const LETTER_TO_LATIN = {"Щ":"Sh", "щ":"sh", "ы":"i","Ы":"I", "ъ":"'", "Ъ"
 const VOWEL = ['А','а', 'О','о', 'И','и', 'У','у', 'Э','э', 'Ў','ў', 'Е','е', 'Ё','ё', 'Ю','ю', 'Я','я'];
 const LETTER_TO_CYRILLIC = {'A':'А', 'B':'Б', 'D':'Д', 'E':'Е', 'F':'Ф', 'G':'Г', 'H':'Ҳ', 'I':'И', 'J':'Ж', 'K':'К', 'L':'Л', 'M':'М', 'N':'Н', 'O':'О', 'P':'П', 'Q':'Қ', 'R':'Р', 'S':'С', 'T':'Т', 'U':'У', 'V':'В', 'X':'Х', "W":"В", 'Y':'Й', 'Z':'З', 'a':'а', 'b':'б', 'd':'д', 'e':'е', 'f':'ф', 'g':'г', 'h':'ҳ', 'i':'и', 'j':'ж', 'k':'к', 'l':'л', 'm':'м', 'n':'н', 'o':'о', 'p':'п', 'q':'қ', 'r':'р', 's':'с', 't':'т', 'u':'у', 'v':'в', 'x':'х', "w":"в", 'y':'й', 'z':'з', "ʻ":"ъ", 'ʼ':'ъ', "'":'ъ', '`':'ъ', "’":"ъ", 'yo':'ё', 'yu':'ю', 'ya':'я', 'ts':'ц', 'C':'К', 'c':'к' };
 
-const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail", "time", "cite", "button", "mark", "small", "th", "td"]
+const htmlElements = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'strong', 'i', 'li', 'em', 'b', 'code', 'blockquote', 'label', 'div', "dd", "dt", "summary", "detail", "time", "cite", "button", "mark", "small", "th", "td", "option"]
 
 // @ts-ignore
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -114,7 +114,7 @@ function convertToCyrillic(string) {
     }
     // Important! Order of the letters being replaced matters!
     string = string.replace(/\WE/g, replacerGenericLastLetter("Э"));
-    string = string.replace(/\Wе/g, replacerGenericLastLetter("э")); 
+    string = string.replace(/\We/g, replacerGenericLastLetter("э")); 
     string = string.replace(/Ye/g, "Е");
     string = string.replace(/YE/g, "Е");
     string = string.replace(/ye/g, "е");
@@ -143,11 +143,13 @@ function convertToCyrillic(string) {
     string = string.replace(/G'/g, "Ғ");
     string = string.replace(/G`/g, "Ғ");
     string = string.replace(/Gʼ/g, "Ғ");
+    string = string.replace(/G’/g, "Ғ");
 
     string = string.replace(/g‘/g, "ғ");
     string = string.replace(/g'/g, "ғ");
     string = string.replace(/g`/g, "ғ");
     string = string.replace(/gʼ/g, "ғ");
+    string = string.replace(/g’/g, "ғ");    
     
     string = string.replace(/Yo/g, "Ё");
     string = string.replace(/YO/g, "Ё");
