@@ -1,4 +1,4 @@
-window.onload = init; 
+window.onload = init;
 
 function init() { 
 
@@ -30,8 +30,9 @@ function init() {
                 chrome.tabs.sendMessage(tabs[0].id, {language: toLanguage}, (response) => {
                     // @ts-ignore
                     if (chrome.runtime.lastError) {
-                        // @ts-ignore
-                        console.log(`Error happened ${chrome.runtime.lastError.message}`);
+                        // inform the user to re-load the page
+                        let node = document.getElementById("overlay");
+                        node.style.display = "block"
                         return;
                     }
                     if (response && response.success) {
