@@ -1,48 +1,41 @@
 window.onload = init;
 
-function init() { 
+function init() {
 
-    let button = document.getElementById("transliterateBtn");
-    button.addEventListener("click", (e) => {
-        // add the button spinner class
-        let loaderPlaceholder = document.getElementById("loader_placeholder");
-        loaderPlaceholder.classList.add("loading");
+  let button = document.getElementById("transliterateBtn");
+  button.addEventListener("click", async (e) => {
+    // add the button spinner class
+    let loaderPlaceholder = document.getElementById("loader_placeholder");
+    loaderPlaceholder.classList.add("loading");
 
+    // @ts-ignore
+    button.disabled = true;
+
+    let toLanguage;
+    // @ts-ignore
+    if (document.getElementById("latin").checked)
+      toLanguage = "latin";
+    else
+      toLanguage = "cyrillic"
+
+    setTimeout(async () => {
+      try {
         // @ts-ignore
-        button.disabled = true;
-
-        let toLanguage;
+        const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
         // @ts-ignore
-        if (document.getElementById("latin").checked) 
-            toLanguage = "latin";
-        else 
-            toLanguage = "cyrillic"
+        const response = await chrome.tabs.sendMessage(tabs[0].id, { language: toLanguage });
 
-        const params = {
-            active: true,
-            currentWindow: true
+        if (response && response.success) {
+          loaderPlaceholder.classList.remove("loading");
+          // @ts-ignore                
+          button.disabled = false;
         }
-
-        setTimeout(() => {
-            // @ts-ignore
-            chrome.tabs.query(params, (tabs) => {
-                // @ts-ignore
-                chrome.tabs.sendMessage(tabs[0].id, {language: toLanguage}, (response) => {
-                    // @ts-ignore
-                    if (chrome.runtime.lastError) {
-                        // inform the user to re-load the page
-                        let node = document.getElementById("overlay");
-                        node.style.display = "block"
-                        return;
-                    }
-                    if (response && response.success) {
-                        loaderPlaceholder.classList.remove("loading");
-                        // @ts-ignore                
-                        button.disabled = false;
-                    }
-                })
-            });
-        }, 0)
-    });
+      } catch (error) {
+        // inform the user to re-load the page
+        let node = document.getElementById("overlay");
+        node.style.display = "block";
+      }
+    }, 0)
+  });
 }
 

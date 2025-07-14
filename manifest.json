@@ -1,11 +1,11 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
     "name": "Uzbek transliteration (Latin and Cyrillic)",
     "short_name": "Uzbek transliteration",
 	"description": "This extension transliterates the web page content between Latin and Cyrillic alphabets for Uzbek language",
 	"icons": { "16" : "images/16.png", "48" : "images/48.png", "128" : "images/128.png"},
-	"version": "1.0.1",
-	"browser_action": {
+	"version": "1.0.2",
+	"action": {
 		"default_title": "Lotincha - Кириллча",
 		"default_icon": "images/48.png",
 		"default_popup": "popup.html"
